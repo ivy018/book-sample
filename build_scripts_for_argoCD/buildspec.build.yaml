@@ -67,7 +67,7 @@ phases:
         echo $PUB_SUB_A
         echo $PUB_SUB_C
       - |
-        git remode add chart https://git-codecommit.$REGION_NAME.amazonaws.com/v1/repos/$CHART_REPO
+        git remote add chart https://git-codecommit.$REGION_NAME.amazonaws.com/v1/repos/$CHART_REPO
         git clone https://git-codecommit.$REGION_NAME.amazonaws.com/v1/repos/$CHART_REPO
         echo "### Deploy helm chart"
         cd $CHART_REPO
