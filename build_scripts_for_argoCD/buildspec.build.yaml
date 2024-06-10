@@ -5,6 +5,7 @@ env:
   variables:
     CHART_REPO: book-sample-chart
     TAG_PARAMETER_STORE: /app/repo/main/tag
+    CHART_REPO_APP_NAME: app
   parameter-store:
     ASSUME_ROLE: /eks/role/arn
     IMAGE_TAG: /app/repo/main/tag
@@ -73,7 +74,7 @@ phases:
         echo "### Deploy helm chart"
         cd $CHART_REPO
       
-        cat values-template.yaml | envsubst > game-2048/values.yaml
+        cat $CHART_REPO_APP_NAME/values-template.yaml | envsubst > $CHART_REPO_APP_NAME/values.yaml
         git config --global user.email "abc@abc.com"
         git config --global user.name "abc"
         git add . 
