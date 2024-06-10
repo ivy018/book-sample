@@ -4,9 +4,10 @@ env:
   git-credential-helper: yes
   variables:
     CHART_REPO: book-sample-chart
+    TAG_PARAMETER_STORE: /app/repo/main/tag
   parameter-store:
     ASSUME_ROLE: /eks/role/arn
-    IMAGE_TAG: /book/sample/main/tag
+    IMAGE_TAG: /app/repo/main/tag
     PUB_SUB_A: /base/pub/subnet/a
     PUB_SUB_C: /base/pub/subnet/c
     CLUSTER_NAME: /eks/cluster/name
@@ -62,7 +63,7 @@ phases:
         export AWS_SESSION_TOKEN=$(cat config.json | jq ".Credentials.SessionToken" | tr -d '"')
       - |
         echo "### Pushing Container Image Tag to SSM###"
-        aws ssm put-parameter --name /book/sample/main/tag --value ${IMAGE_TAG} --type String --region $REGION_NAME --overwrite
+        aws ssm put-parameter --name ${TAG_PARAMETER_STORE} --value ${IMAGE_TAG} --type String --region $REGION_NAME --overwrite
         echo $IMAGE_TAG
         echo $PUB_SUB_A
         echo $PUB_SUB_C
