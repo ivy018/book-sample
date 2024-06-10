@@ -11,6 +11,10 @@ Parameters:
     Description: Repository branch name
     Type: String
     Default: main
+  PipelineServiceRoleName:
+    Description: Pipeline service role name
+    Type: String
+    Default: pipeline-role
   PipelineRoleARN:
     Description: Pipeline service role arn
     Type: String
