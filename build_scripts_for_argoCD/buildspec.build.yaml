@@ -67,7 +67,8 @@ phases:
         echo $PUB_SUB_A
         echo $PUB_SUB_C
       - |
-        git clone https://git-codecommit.$REGION_NAME.amazonaws.com/v1/repos/$CHART_REPO 
+        git remode add chart https://git-codecommit.$REGION_NAME.amazonaws.com/v1/repos/$CHART_REPO
+        git clone https://git-codecommit.$REGION_NAME.amazonaws.com/v1/repos/$CHART_REPO
         echo "### Deploy helm chart"
         cd $CHART_REPO
       
@@ -76,7 +77,7 @@ phases:
         git config --global user.name "abc"
         git add . 
         git commit -m "update helm chat IAMAGE_TAG=${IMAGE_TAG}"
-        git push origin main
+        git push chart main
       - echo "${IMAGE_TAG}" >> ../build_output.txt
       
 artifacts:
