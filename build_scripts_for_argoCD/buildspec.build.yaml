@@ -63,7 +63,7 @@ phases:
         export AWS_SESSION_TOKEN=$(cat config.json | jq ".Credentials.SessionToken" | tr -d '"')
       - |
         echo "### Pushing Container Image Tag to SSM###"
-        aws ssm put-parameter --name ${TAG_PARAMETER_STORE} --value ${IMAGE_TAG} --type String --region $REGION_NAME --overwrite
+        aws ssm put-parameter --name $TAG_PARAMETER_STORE --value ${IMAGE_TAG} --type String --region $REGION_NAME --overwrite
         echo $IMAGE_TAG
         echo $PUB_SUB_A
         echo $PUB_SUB_C
