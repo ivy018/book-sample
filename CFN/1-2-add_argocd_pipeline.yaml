@@ -217,7 +217,7 @@ Resources:
             Principal:
               AWS:
                 - !Sub arn:aws:iam::${AWS::AccountId}:root
-                - !GetAtt PipelineServiceRole.Arn
+                - !Ref PipelineRoleARN
             Action: 
               - "s3:*"
             Resource:
