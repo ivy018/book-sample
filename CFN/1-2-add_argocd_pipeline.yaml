@@ -14,7 +14,7 @@ Parameters:
   PipelineRoleARN:
     Description: Pipeline service role arn
     Type: String
-    Default: arn:
+    Default: arn
   RepositoryName:
     Description: Repository name
     Type: String
