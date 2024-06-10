@@ -3,7 +3,7 @@ env:
   shell: bash
   git-credential-helper: yes
   variables:
-    CHART_REPO: book-sample-chart
+    CHART_REPO: app-chart
     TAG_PARAMETER_STORE: /app/repo/main/tag
     CHART_REPO_APP_NAME: app
   parameter-store:
